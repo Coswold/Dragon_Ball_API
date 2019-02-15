@@ -27,6 +27,19 @@ There is a total of ? characters sorted by id.
 |url|string (url)|Link to the character's own URL endpoint.
 |created|string|Time at which the character was created in the database.
 
+## Planet
+There is a total of ? planets sorted by id.
+
+### Planet schema
+|Key|Type|Description|
+|---|---|---|
+|id|int|The id of the planet.
+|name|string|The name of the planet.
+|residents|array (url)|All characters from this planet.
+|image|string (url)|Link to the planet's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
+|url|string|Link to planets own endpoint.
+|created|string|Time at which the planet was created in the database.
+
 ## Features
 
 ## Getting Started
@@ -105,6 +118,6 @@ See also the list of [contributors](https://github.com/coswold/My_API/contributo
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
+* Thanks to [Blackrock Digital](https://github.com/BlackrockDigital) for the styling template.
 * Inspiration came from Rick and Morty API (add link to github and url)
 * etc
