@@ -5,6 +5,7 @@ var exphbs = require('express-handlebars')
 
 app.use(express.static('public'));
 
+require('./data/dbapi-db');
 require('./controllers/objects')(app)
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
