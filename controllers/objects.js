@@ -4,4 +4,7 @@ module.exports = (app) => {
         res.render("index");
     });
 
+    app.get("/submit", (req, res) => {
+        res.render("submit");
+    });
 }
