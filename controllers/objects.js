@@ -9,11 +9,17 @@ module.exports = (app) => {
 
     // Submit Form
     app.get("/submit", (req, res) => {
-        res.render("submit");
+        Planet.find()
+        .then(planet => {
+            res.render("submit", { planet });
+        })
+        .catch(err => {
+            console.log(err.message);
+        });
     });
 
     // CREATE PLANET
-    app.post("/api/planet", function(req, res) {
+    app.get("/submit/planet", function(req, res) {
         // INSTANTIATE INSTANCE OF MODEL
         console.log("made it")
         const planet = new Planet();

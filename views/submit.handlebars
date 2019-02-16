@@ -56,8 +56,9 @@
                             <label for="planet">Character Planet of Origin</label>
                             <select class="form-control" id="planet">
                                 <option>Unknown</option>
-                                <option>?</option>
-                                <option>?</option>
+                                {{#each planet}}
+                                    <option>{{this.name}}</option>
+                                {{/each}}
                             </select>
                         </div>
 
