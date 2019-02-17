@@ -24,4 +24,15 @@ module.exports = function(app) {
             console.log(err.message);
         });
     })
+
+    // GET ALL PLANETS
+    app.get("/api/planet", (req, res) => {
+        Planet.find()
+        .then(planet => {
+            res.json(planet);
+        })
+        .catch(err => {
+            console.log(err.message);
+        });
+    })
 }

@@ -3,7 +3,6 @@ const Populate = require("../util/autopopulate");
 const Schema = mongoose.Schema;
 
 const PlanetSchema = new Schema({
-    id: { type: Number, unique: true},
     name: { type: String, trim: true, required: true },
     residents: [{ type: Schema.Types.ObjectId, ref: 'Character' }],
     created: { type: Date, default: Date.now },

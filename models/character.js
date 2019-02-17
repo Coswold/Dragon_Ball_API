@@ -3,7 +3,6 @@ const Populate = require("../util/autopopulate");
 const Schema = mongoose.Schema;
 
 const CharacterSchema = new Schema({
-    id: { type: Number, unique: true},
     name: { type: String, trim: true, required: true },
     forms: [{ type: Schema.Types.ObjectId, ref: 'Character' }],
     species: { type: String, trim: true, default: 'unknown' },

@@ -23,7 +23,6 @@ module.exports = (app) => {
         // INSTANTIATE INSTANCE OF MODEL
         console.log("made it")
         const planet = new Planet();
-        planet.id = 1
         planet.name = "Vageta"
         planet.url = "/api/planet/1"
 
