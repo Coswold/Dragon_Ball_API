@@ -3,7 +3,11 @@ const app = express();
 const port = 3000
 var exphbs = require('express-handlebars')
 const expressValidator = require('express-validator');
+const bodyParser = require('body-parser');
 
+// Use Body Parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static('public'));
 

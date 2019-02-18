@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+                <form class="form-horizontal" method="POST" action="/character">
                     <br><br>
                     <fieldset>
                         <br>
@@ -16,36 +16,36 @@
 
                         <div class="form-group">
                             <label for="species">Character Species</label>
-                            <select class="form-control" id="species">
-                                <option>Unknown</option>
-                                <option>Saiyan</option>
-                                <option>Namekian</option>
-                                <option>Human</option>
+                            <select name="species" class="form-control" id="species">
+                                <option value="unknown">Unknown</option>
+                                <option value="Saiyan">Saiyan</option>
+                                <option value="Namekian">Namekian</option>
+                                <option value="Human">Human</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="gender">Character Gender</label>
-                            <select class="form-control" id="gender">
+                            <select name="gender" class="form-control" id="gender">
                                 <option>-</option>
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Genderless</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Genderless">Genderless</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="status">Character Status</label>
-                            <select class="form-control" id="status">
-                                <option>Unknown</option>
-                                <option>Alive</option>
-                                <option>Dead</option>
+                            <select name="status" class="form-control" id="status">
+                                <option value="unknown">Unknown</option>
+                                <option value="Alive">Alive</option>
+                                <option value="Dead">Dead</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="forms">Alternate Forms</label>
-                            <select class="form-control" id="forms">
+                            <select name="forms" class="form-control" id="forms">
                                 <option>-</option>
                                 <option>?</option>
                                 <option>?</option>
@@ -54,28 +54,28 @@
 
                         <div class="form-group">
                             <label for="planet">Character Planet of Origin</label>
-                            <select class="form-control" id="planet">
+                            <select name="originPlanet" class="form-control" id="planet">
                                 <option>Unknown</option>
                                 {{#each planet}}
-                                    <option>{{this.name}}</option>
+                                    <option value="{{this.name}}">{{this.name}}</option>
                                 {{/each}}
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="series">Series</label>
-                            <select class="form-control" id="series">
+                            <select name="series" class="form-control" id="series">
                                 <option>-</option>
-                                <option>DragonBall</option>
-                                <option>Z</option>
-                                <option>GT</option>
-                                <option>Super</option>
+                                <option value="DragonBall">DragonBall</option>
+                                <option value="Z">Z</option>
+                                <option value="GT">GT</option>
+                                <option value="Super">Super</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="image">Character Image</label>
-                            <input type="file" class="form-control-file" id="image">
+                            <input name="image" type="file" class="form-control-file" id="image">
                         </div>
 
                         <br>
