@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label for="forms">Alternate Forms</label>
                             <select name="forms" class="form-control" id="forms">
-                                <option>-</option>
+                                <option></option>
                                 <option>?</option>
                                 <option>?</option>
                             </select>
@@ -57,7 +57,7 @@
                             <select name="originPlanet" class="form-control" id="planet">
                                 <option>Unknown</option>
                                 {{#each planet}}
-                                    <option value="{{this.name}}">{{this.name}}</option>
+                                    <option value="{{this.url}}">{{this.name}}</option>
                                 {{/each}}
                             </select>
                         </div>

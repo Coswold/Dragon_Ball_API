@@ -1,4 +1,4 @@
-# API Project
+# DragonBallAPI
 
 ## What it is
 One Paragraph of project description goes here

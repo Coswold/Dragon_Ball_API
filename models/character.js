@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 
 const CharacterSchema = new Schema({
     name: { type: String, trim: true, required: true },
-    forms: [{ type: Schema.Types.ObjectId, ref: 'Character' }],
+    forms: [{ type: String }],
     species: { type: String, trim: true, default: 'unknown' },
     status: { type: String, trim: true, default: 'unknown' },
-    originPlanet: { type: mongoose.Schema.ObjectId, ref: 'Planet' },
+    originPlanet: { type: String, default: 'unknown' },
     gender: { type: String, trim: true, default: 'unknown' },
     series: { type: String, trim: true, required: true },
     created: { type: Date, default: Date.now },
