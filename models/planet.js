@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const PlanetSchema = new Schema({
     name: { type: String, trim: true, required: true },
-    residents: [{ type: String }],
+    residents: [{ type: Schema.Types.ObjectId, ref: 'Character' }],
     created: { type: Date, default: Date.now },
     image: String,
     url: String,

@@ -49,16 +49,16 @@ module.exports = function(app) {
     app.post("/character", function(req, res) {
         // INSTANTIATE INSTANCE OF MODEL
         const character = new Character(req.body);
-        console.log(character)
 
         // SAVE INSTANCE OF CHARACTER MODEL TO DB
         character.save()
         .then( character => {
-            //Planet.findOneAndUpdate(character.originPlanet, character)
-            //var planet = Planet.find(character.originPlanet)
-            //console.log(planet)
-            //planet.residents.push(character);
-            //planet.save();
+            Planet.findOneAndUpdate({ name: character.originPlanet }, { $push: { residents: character } })
+            //console.log(Planet.findOne({ name: character.originPlanet })
+            //var planet = Planet.find({ name: character.originPlanet })
+            //console.log(character.originPlanet)
+            //planet.update({ $push: { residents: character } })
+            //planet.update({ residents: character });
             res.redirect(`/`);
         })
         .catch(err => {
