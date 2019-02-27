@@ -3,9 +3,21 @@ const Planet = require('../models/planet')
 
 module.exports = function(app) {
     // DISPLAY
+    //app.get("/", (req, res) => {
+    //    res.render("index");
+    //});
+
+    //
     app.get("/", (req, res) => {
-        res.render("index");
-    });
+        Character.aggregate([{ $sample: { size: 6 } }])
+        .then(character => {
+            console.log(character[0])
+            res.render("index", { character });
+        })
+        .catch(err => {
+            console.log(err.message);
+        });
+    })
 
     // Submit Form
     app.get("/submit/new", (req, res) => {
@@ -23,8 +35,8 @@ module.exports = function(app) {
         // INSTANTIATE INSTANCE OF MODEL
         console.log("made it")
         const planet = new Planet();
-        planet.name = "Namek"
-        planet.url = "/api/planet/Namek"
+        planet.name = "Vegeta"
+        planet.url = "/api/planet/Vegeta"
 
         console.log(planet)
 
