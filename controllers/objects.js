@@ -3,11 +3,6 @@ const Planet = require('../models/planet')
 
 module.exports = function(app) {
     // DISPLAY
-    //app.get("/", (req, res) => {
-    //    res.render("index");
-    //});
-
-    //
     app.get("/", (req, res) => {
         Character.aggregate([{ $sample: { size: 6 } }])
         .then(character => {
@@ -56,9 +51,14 @@ module.exports = function(app) {
         const character = new Character(req.body);
         console.log(character)
 
-        // SAVE INSTANCE OF PLANET MODEL TO DB
+        // SAVE INSTANCE OF CHARACTER MODEL TO DB
         character.save()
         .then( character => {
+            //Planet.findOneAndUpdate(character.originPlanet, character)
+            //var planet = Planet.find(character.originPlanet)
+            //console.log(planet)
+            //planet.residents.push(character);
+            //planet.save();
             res.redirect(`/`);
         })
         .catch(err => {
