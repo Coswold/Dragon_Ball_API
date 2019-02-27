@@ -19,17 +19,20 @@ module.exports = function(app) {
     });
 
     // CREATE PLANET
-    app.post("/planet", function(req, res) {
+    app.get("/planet", function(req, res) {
         // INSTANTIATE INSTANCE OF MODEL
         console.log("made it")
         const planet = new Planet();
-        planet.name = "Vageta"
-        planet.url = "/api/planet/1"
+        planet.name = "Namek"
+        planet.url = "/api/planet/Namek"
 
         console.log(planet)
 
         // SAVE INSTANCE OF PLANET MODEL TO DB
         planet.save()
+        .then( character => {
+            res.redirect(`/`);
+        })
         .catch(err => {
             console.log(err);
         });
@@ -38,9 +41,7 @@ module.exports = function(app) {
     // CREATE CHARACTER
     app.post("/character", function(req, res) {
         // INSTANTIATE INSTANCE OF MODEL
-        console.log("made it")
         const character = new Character(req.body);
-
         console.log(character)
 
         // SAVE INSTANCE OF PLANET MODEL TO DB

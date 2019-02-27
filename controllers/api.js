@@ -15,8 +15,8 @@ module.exports = function(app) {
     })
 
     // GET SINGLE CHARACTER
-    app.get("/api/character/:id", (req, res) => {
-        Character.findById(req.params.id)
+    app.get("/api/character/:name", (req, res) => {
+        Character.findOne(req.params)
         .then(character => {
             res.json(character);
         })
@@ -28,6 +28,17 @@ module.exports = function(app) {
     // GET ALL PLANETS
     app.get("/api/planet", (req, res) => {
         Planet.find()
+        .then(planet => {
+            res.json(planet);
+        })
+        .catch(err => {
+            console.log(err.message);
+        });
+    })
+
+    // GET SINGLE PLANET
+    app.get("/api/planet/:name", (req, res) => {
+        Planet.findOne(req.params)
         .then(planet => {
             res.json(planet);
         })
