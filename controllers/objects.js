@@ -52,13 +52,9 @@ module.exports = function(app) {
 
         // SAVE INSTANCE OF CHARACTER MODEL TO DB
         character.save()
+        Planet.findOneAndUpdate({ name: character.originPlanet },
+            { $push: { residents: character.name } })
         .then( character => {
-            Planet.findOneAndUpdate({ name: character.originPlanet }, { $push: { residents: character } })
-            //console.log(Planet.findOne({ name: character.originPlanet })
-            //var planet = Planet.find({ name: character.originPlanet })
-            //console.log(character.originPlanet)
-            //planet.update({ $push: { residents: character } })
-            //planet.update({ residents: character });
             res.redirect(`/`);
         })
         .catch(err => {
