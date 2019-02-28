@@ -26,12 +26,13 @@ module.exports = function(app) {
     });
 
     // CREATE PLANET
-    app.get("/planet", function(req, res) {
+    app.get("/planet/:name", function(req, res) {
         // INSTANTIATE INSTANCE OF MODEL
-        console.log("made it")
         const planet = new Planet();
-        planet.name = "Vegeta"
-        planet.url = "/api/planet/Vegeta"
+        console.log(req.params.name)
+        planet.name = (req.params.name).toString()
+        planet.url = "/api/planet/" + planet.name
+        planet.image = "/api/planet/images/" + planet.name + ".jpeg"
 
         console.log(planet)
 
@@ -50,7 +51,7 @@ module.exports = function(app) {
         // INSTANTIATE INSTANCE OF MODEL
         const character = new Character(req.body);
         character.url = "/api/character/" + character.name
-        character.image = "api/character/images/" + character.name + ".jpeg"
+        character.image = "../images/" + character.name + ".jpg"
 
         // SAVE INSTANCE OF CHARACTER MODEL TO DB
         character.save()
