@@ -49,6 +49,8 @@ module.exports = function(app) {
     app.post("/character", function(req, res) {
         // INSTANTIATE INSTANCE OF MODEL
         const character = new Character(req.body);
+        character.url = "/api/character/" + character.name
+        character.image = "api/character/images/" + character.name + ".jpeg"
 
         // SAVE INSTANCE OF CHARACTER MODEL TO DB
         character.save()
