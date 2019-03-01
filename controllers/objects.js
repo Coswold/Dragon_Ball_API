@@ -5,10 +5,11 @@ const Planet = require('../models/planet')
 module.exports = function(app) {
     // DISPLAY
     app.get("/", (req, res) => {
+        var currentUser = req.user;
+        console.log(currentUser)
         Character.aggregate([{ $sample: { size: 6 } }])
         .then(character => {
-            console.log(character[0]);
-            res.render("index", { character });
+            res.render("index", { currentUser, character });
         })
         .catch(err => {
             console.log(err.message);
@@ -17,9 +18,11 @@ module.exports = function(app) {
 
     // Submit Form
     app.get("/submit/new", (req, res) => {
+        var currentUser = req.user;
+
         Planet.find()
         .then(planet => {
-            res.render("submit", { planet });
+            res.render("submit", { planet, currentUser });
         })
         .catch(err => {
             console.log(err.message);
