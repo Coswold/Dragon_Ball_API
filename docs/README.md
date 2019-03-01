@@ -15,16 +15,16 @@ Base url: DragonBallAPI.com/api
 The base url contains information about all available API's resources. All responses will return data in `json`.
 
 *Sample Request*
-'''
+```
 https://dragonballapi.com/api/
-'''
+```
 
-'''
+```
 {
   "characters": "https://rickandmortyapi.com/api/character",
   "planets": "https://rickandmortyapi.com/api/location",
 }
-'''
+```
 There are currently 2 available resources:
 
 * Character: Used to get all characters
@@ -45,6 +45,21 @@ Currently collecting data on characters.
 |image|string (url)|Link to the character's image.
 |url|string (url)|Link to the character's own URL endpoint.
 |created|string|Time at which the character was created in the database.
+
+### Get all characters
+You can access the list of characters by using the /character endpoint.
+```
+https://dragonballapi.com/api/character/
+```
+
+### Get a single character
+You can get a single character by adding the name as a parameter: /character/Gohan
+```
+https://rickandmortyapi.com/api/character/2
+```
+```
+{"species":"Saiyan","status":"Alive","originPlanet":"Earth","gender":"Male","_id":"5c787595373a47d30cff0317","name":"Gohan","series":"Z","image":"../images/Gohan.jpg","created":"2019-02-28T23:58:13.141Z","url":"/api/character/Gohan","__v":0}
+```
 
 ## Planet
 There is a total of ? planets sorted by id.
