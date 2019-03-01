@@ -54,6 +54,8 @@ https://dragonballapi.com/api/character/
 
 ### Get a single character
 You can get a single character by adding the name as a parameter: /character/Gohan
+
+If a name has a space `' '`, replace it with an underscore `_`.
 ```
 https://dragonballapi.com/api/character/2
 ```
@@ -93,6 +95,8 @@ https://dragonballapi.com/api/planet/
 
 ### Get a single character
 You can get a single character by adding the name as a parameter: /planet/Earth
+
+If a name has a space `' '`, replace it with an underscore `_`.
 ```
 https://dragonballapi.com/api/planet/Earth
 ```
