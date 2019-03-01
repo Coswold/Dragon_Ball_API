@@ -148,4 +148,4 @@ See also the list of [contributors](https://github.com/coswold/Dragon_Ball_API/c
 ## Acknowledgments
 
 * Thanks to [Blackrock Digital](https://github.com/BlackrockDigital) for the styling template.
-* Inspiration came from [Rick and Morty API] (https://rickandmortyapi.com/) created by [Axel](https://github.com/afuh).
+* Inspiration came from [Rick and Morty API](https://rickandmortyapi.com/) created by [Axel](https://github.com/afuh).
