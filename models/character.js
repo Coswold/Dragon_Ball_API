@@ -3,7 +3,7 @@ const Populate = require("../util/autopopulate");
 const Schema = mongoose.Schema;
 
 const CharacterSchema = new Schema({
-    name: { type: String, trim: true, required: true },
+    name: { type: String, trim: true, required: true, unique: true },
     species: { type: String, trim: true, default: 'unknown' },
     status: { type: String, trim: true, default: 'unknown' },
     originPlanet: { type: String, default: 'unknown' },

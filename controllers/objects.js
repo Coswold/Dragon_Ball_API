@@ -18,42 +18,51 @@ module.exports = function(app) {
 
     // Submit Form
     app.get("/submit/new", (req, res) => {
-        var currentUser = req.user;
+        if (req.user) {
+            var currentUser = req.user;
 
-        Planet.find()
-        .then(planet => {
-            res.render("submit", { planet, currentUser });
-        })
-        .catch(err => {
-            console.log(err.message);
-        });
+            Planet.find()
+            .then(planet => {
+                res.render("submit", { planet, currentUser });
+            })
+            .catch(err => {
+                console.log(err.message);
+            });
+        } else {
+            res.redirect(`/login`); // UNAUTHORIZED
+        }
     });
 
     // CREATE PLANET
     app.get("/planet/:name", function(req, res) {
-        // INSTANTIATE INSTANCE OF MODEL
-        const planet = new Planet();
-        console.log(req.params.name)
-        planet.name = (req.params.name).toString()
-        planet.url = "/api/planet/" + planet.name
-        planet.image = "/api/planet/images/" + planet.name + ".jpeg"
+        if (req.user && req.user.username == "admin") {
+            // INSTANTIATE INSTANCE OF MODEL
+            const planet = new Planet();
+            console.log(req.params.name)
+            planet.name = (req.params.name).toString().replace(/ /g,"_")
+            planet.url = "/api/planet/" + planet.name
+            planet.image = "../images/" + planet.name + ".jpg"
 
-        console.log(planet)
+            console.log(planet)
 
-        // SAVE INSTANCE OF PLANET MODEL TO DB
-        planet.save()
-        .then( character => {
+            // SAVE INSTANCE OF PLANET MODEL TO DB
+            planet.save()
+            .then( character => {
+                res.redirect(`/`);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        } else {
             res.redirect(`/`);
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        }
     });
 
     // CREATE CHARACTER
     app.post("/character", function(req, res) {
         // INSTANTIATE INSTANCE OF MODEL
         const character = new Character(req.body);
+        character.name = character.name.replace(/ /g,"_")
         character.url = "/api/character/" + character.name
         character.image = "../images/" + character.name + ".jpg"
 
