@@ -21,8 +21,8 @@ https://dragonballapi.com/api/
 
 ```
 {
-  "characters": "https://rickandmortyapi.com/api/character",
-  "planets": "https://rickandmortyapi.com/api/location",
+  "characters": "https://dragonballapi.com/api/character",
+  "planets": "https://dragonballapi.com/api/location",
 }
 ```
 There are currently 2 available resources:
@@ -134,15 +134,16 @@ SECRET = ???
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Bootstrap](https://getbootstrap.com/) - The web framework used
+* [Npm](https://www.npmjs.com/) - Dependency management used
+* [Json Web Tokens](https://jwt.io/) - Encyption used
+* [MongoDB](https://www.mongodb.com/) - Document based database used 
 
 ## Authors
 
 * **Connor Oswold** - *Initial work* - [Coswold](https://github.com/Coswold)
 
-See also the list of [contributors](https://github.com/coswold/My_API/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/coswold/Dragon_Ball_API/contributors) who participated in this project.
 
 ## Acknowledgments
 
