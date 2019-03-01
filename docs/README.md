@@ -55,14 +55,25 @@ https://dragonballapi.com/api/character/
 ### Get a single character
 You can get a single character by adding the name as a parameter: /character/Gohan
 ```
-https://rickandmortyapi.com/api/character/2
+https://dragonballapi.com/api/character/2
 ```
 ```
-{"species":"Saiyan","status":"Alive","originPlanet":"Earth","gender":"Male","_id":"5c787595373a47d30cff0317","name":"Gohan","series":"Z","image":"../images/Gohan.jpg","created":"2019-02-28T23:58:13.141Z","url":"/api/character/Gohan","__v":0}
+{
+  "species":"Saiyan",
+  "status":"Alive",
+  "originPlanet":"Earth",
+  "gender":"Male",
+  "_id":"5c787595373a47d30cff0317",
+  "name":"Gohan","series":"Z",
+  "image":"../images/Gohan.jpg",
+  "created":"2019-02-28T23:58:13.141Z",
+  "url":"/api/character/Gohan",
+  "__v":0
+}
 ```
 
 ## Planet
-There is a total of ? planets sorted by id.
+Currently collecting data on planets.
 
 ### Planet schema
 |Key|Type|Description|
@@ -73,75 +84,59 @@ There is a total of ? planets sorted by id.
 |url|string|Link to planets own endpoint.
 |created|string|Time at which the planet was created in the database.
 
-## Features
+
+### Get all planets
+You can access the list of characters by using the /planet endpoint.
+```
+https://dragonballapi.com/api/planet/
+```
+
+### Get a single character
+You can get a single character by adding the name as a parameter: /planet/Earth
+```
+https://dragonballapi.com/api/planet/Earth
+```
+```
+{
+  "residents":["Gohan","Trunks","Android16"],
+  "_id":"5c785e7a52cc1dd11ddb59ba",
+  "created":"2019-02-28T22:19:38.652Z",
+  "name":"Earth",
+  "url":"/api/planet/Earth",
+  "image":"/api/planet/images/Earth.jpeg",
+  "__v":0
+}
+```
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Install all dependencies
 
 ```
-Give the example
+npm install
 ```
 
-And repeat
+Create .env file
 
 ```
-until finished
+touch .env
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Add secret key to .env
 
 ```
-Give an example
+SECRET = ???
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](#) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
@@ -152,5 +147,4 @@ See also the list of [contributors](https://github.com/coswold/My_API/contributo
 ## Acknowledgments
 
 * Thanks to [Blackrock Digital](https://github.com/BlackrockDigital) for the styling template.
-* Inspiration came from Rick and Morty API (add link to github and url)
-* etc
+* Inspiration came from [Rick and Morty API] (https://rickandmortyapi.com/) created by [Axel](https://github.com/afuh).
