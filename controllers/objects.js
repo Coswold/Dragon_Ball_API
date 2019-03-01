@@ -1,4 +1,5 @@
 const Character = require('../models/character')
+
 const Planet = require('../models/planet')
 
 module.exports = function(app) {
@@ -6,13 +7,13 @@ module.exports = function(app) {
     app.get("/", (req, res) => {
         Character.aggregate([{ $sample: { size: 6 } }])
         .then(character => {
-            console.log(character[0])
+            console.log(character[0]);
             res.render("index", { character });
         })
         .catch(err => {
             console.log(err.message);
         });
-    })
+    });
 
     // Submit Form
     app.get("/submit/new", (req, res) => {

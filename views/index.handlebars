@@ -8,17 +8,16 @@
     {{#each character}}
     <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-            <a href="#"><img class="card-img-top" src={{this.image}} alt="http://placehold.it/700x400"></a>
+            <a><img class="card-img-top" src={{this.image}} alt="http://placehold.it/700x400"></a>
             <div class="card-body">
                 <h4 class="card-title">
-                    <a href="#">{{this.name}}</a>
+                    <a>{{this.name}}</a>
                 </h4>
                 <p class="card-text">Planet of Origin: {{this.originPlanet}}</p>
                 <p class="card-text">Species: {{this.species}}</p>
                 <p class="card-text">Gender: {{this.gender}}</p>
                 <p class="card-text">Original Series: {{this.series}}</p>
                 <p class="card-text">Status: {{this.status}}</p>
-                <p class="card-text">Alternate Forms: {{this.forms}}</p>
                 <p class="card-text">API URL: {{this.url}}</p>
             </div>
         </div>
