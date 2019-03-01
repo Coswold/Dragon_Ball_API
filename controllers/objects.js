@@ -21,6 +21,11 @@ module.exports = function(app) {
         res.render("about", { currentUser });
     });
 
+    app.get("/documentation", (req, res) => {
+        var currentUser = req.user;
+        res.render("documentation", { currentUser });
+    });
+
     // Submit Form
     app.get("/submit/new", (req, res) => {
         if (req.user) {
