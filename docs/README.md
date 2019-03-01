@@ -1,29 +1,43 @@
 # DragonBallAPI
 
 ## What it is
-One Paragraph of project description goes here
-> DragonBallAPI
-* Characters
-* Planets
+The Dragon Ball API is a RESTful API based on the television series Dragon Ball. By creating an account, you will get 5 queries per week, returning either characters or planets from the series. I am currently working on adding characters and planets to the database and have added the option for you to contribute as well. I am still working on how to verify the input from users.
 
-> Other?
+## Introduction
+This documentation will help you get familiar with the resources of the Dragon Ball API and show you how to make different queries, so that you can get the most out of it.
 
-## Character
-There is a total of ? characters sorted by id.
+### Rate Limit
+To stop malicious activity, I have implemented authentication as well as a hard limit on queries per week. Each user is associated with a query count that is incremented with each query. After 5 queries you will no longer be able to submit data or recieve the json objects. At the end of each week, all counters will be reset to zero.
+
+### Rest
+Base url: DragonBallAPI.com/api
+
+The base url contains information about all available API's resources. All responses will return data in `json`.
+
+*Sample Request*
+'''https://dragonballapi.com/api/'''
+'''{
+  "characters": "https://rickandmortyapi.com/api/character",
+  "planets": "https://rickandmortyapi.com/api/location",
+}'''
+There are currently 2 available resources:
+
+* Character: Used to get all characters
+* Planet: Used to get all planets
+
+## Characters
+Currently collecting data on characters.
 
 ### Character schema
 |Key|Type|Description|
 |---|---|---|
-|id|int|The id of the character.
 |name|string|The name of the character.
 |status|string|The status of the character ('Alive', 'Dead' or 'unknown').
 |species|string|The species of the character.
-|forms|array (object)|Name and links to characters alternate forms.
-|family|array (object)|Name and links to characters family members.
-|series|array (string)|The sub-series that the character is from i.e. Z, GT, etc.
-|gender|string|The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').
-|origin planet|object|Name and link to the character's origin planet.
-|image|string (url)|Link to the character's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
+|series|string|The sub-series that the character is from i.e. Z, GT, etc.
+|gender|string|The gender of the character ('Female', 'Male', 'Genderless').
+|origin planet|string (url)|Url to the character's origin planet.
+|image|string (url)|Link to the character's image.
 |url|string (url)|Link to the character's own URL endpoint.
 |created|string|Time at which the character was created in the database.
 
@@ -33,10 +47,9 @@ There is a total of ? planets sorted by id.
 ### Planet schema
 |Key|Type|Description|
 |---|---|---|
-|id|int|The id of the planet.
 |name|string|The name of the planet.
-|residents|array (url)|All characters from this planet.
-|image|string (url)|Link to the planet's image. All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
+|residents|string|All characters from this planet.
+|image|string (url)|Link to the planet's image.
 |url|string|Link to planets own endpoint.
 |created|string|Time at which the planet was created in the database.
 
