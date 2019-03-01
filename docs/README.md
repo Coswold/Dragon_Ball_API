@@ -15,11 +15,16 @@ Base url: DragonBallAPI.com/api
 The base url contains information about all available API's resources. All responses will return data in `json`.
 
 *Sample Request*
-'''https://dragonballapi.com/api/'''
-'''{
+'''
+https://dragonballapi.com/api/
+'''
+
+'''
+{
   "characters": "https://rickandmortyapi.com/api/character",
   "planets": "https://rickandmortyapi.com/api/location",
-}'''
+}
+'''
 There are currently 2 available resources:
 
 * Character: Used to get all characters
