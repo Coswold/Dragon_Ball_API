@@ -7,7 +7,7 @@ The Dragon Ball API is a RESTful API based on the television series Dragon Ball.
 This documentation will help you get familiar with the resources of the Dragon Ball API and show you how to make different queries, so that you can get the most out of it.
 
 ### Rate Limit
-To stop malicious activity, I have implemented authentication as well as a limit on queries to 100 per every 15 minutes. I sued express rate limit to stop malicious queries, data submissions, and account creations. After 100 queries, 5 character submissions, or 2 account creations, your IP will be flagged for a certain period of time.
+Authentication has been implemented as well as a limit on queries of up to 100 per every 15 minutes. I implemented `express-rate-limit` to stop malicious queries, data submissions, and account creations. After 100 queries, 5 character submissions, or 2 account creations, your IP will be flagged for a certain period of time.
 
 ### Rest
 Base url: DragonBallAPI.com/api
