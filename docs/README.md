@@ -138,10 +138,11 @@ SECRET = ???
 
 ## Built With
 
-* [Bootstrap](https://getbootstrap.com/) - The web framework used
-* [Npm](https://www.npmjs.com/) - Dependency management used
-* [Json Web Tokens](https://jwt.io/) - Encyption used
-* [MongoDB](https://www.mongodb.com/) - Document based database used 
+* [Bootstrap](https://getbootstrap.com/) - Web framework
+* [Express-rate-limit](https://www.npmjs.com/package/express-rate-limit) - Rate limiting middleware
+* [Npm](https://www.npmjs.com/) - Dependency management
+* [Json Web Tokens](https://jwt.io/) - Encyption
+* [MongoDB](https://www.mongodb.com/) - Document based database
 
 ## Authors
 
