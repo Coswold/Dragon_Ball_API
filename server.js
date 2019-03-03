@@ -5,6 +5,16 @@ var exphbs = require('express-handlebars')
 const expressValidator = require('express-validator');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+const rateLimit = require("express-rate-limit");
+
+app.enable("trust proxy");
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 10
+});
+
+app.use("/api/", apiLimiter);
 
 var cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');

@@ -1,5 +1,13 @@
 const User = require("../models/user");
 const jwt = require('jsonwebtoken');
+const rateLimit = require("express-rate-limit");
+
+const createAccountLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour window
+  max: 2, // start blocking after 5 requests
+  message:
+    "Too many accounts created from this IP, please try again after an hour."
+});
 
 module.exports = (app) => {
     // SIGN UP FORM
@@ -8,7 +16,7 @@ module.exports = (app) => {
     });
 
     // SIGN UP POST
-    app.post("/sign-up", (req, res) => {
+    app.post("/sign-up", createAccountLimiter, (req, res) => {
         // Create User and JWT
         const user = new User(req.body);
         user.save()

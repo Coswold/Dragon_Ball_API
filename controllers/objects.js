@@ -1,6 +1,13 @@
-const Character = require('../models/character')
+const Character = require('../models/character');
+const Planet = require('../models/planet');
+const rateLimit = require("express-rate-limit");
 
-const Planet = require('../models/planet')
+const createAccountLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour window
+  max: 5, // start blocking after 5 requests
+  message:
+    "Too many characters added from this IP, please try again after an hour"
+});
 
 module.exports = function(app) {
     // DISPLAY
@@ -69,22 +76,26 @@ module.exports = function(app) {
     });
 
     // CREATE CHARACTER
-    app.post("/character", function(req, res) {
-        // INSTANTIATE INSTANCE OF MODEL
-        const character = new Character(req.body);
-        character.name = character.name.replace(/ /g,"_")
-        character.url = "/api/character/" + character.name
-        character.image = "../images/" + character.name + ".jpg"
+    app.post("/character", createAccountLimiter, function(req, res) {
+        if (req.user) {
+            // INSTANTIATE INSTANCE OF MODEL
+            const character = new Character(req.body);
+            character.name = character.name.replace(/ /g,"_")
+            character.url = "/api/character/" + character.name
+            character.image = "../images/" + character.name + ".jpg"
 
-        // SAVE INSTANCE OF CHARACTER MODEL TO DB
-        character.save()
-        Planet.findOneAndUpdate({ name: character.originPlanet },
-            { $push: { residents: character.name } })
-        .then( character => {
+            // SAVE INSTANCE OF CHARACTER MODEL TO DB
+            character.save()
+            Planet.findOneAndUpdate({ name: character.originPlanet },
+                { $push: { residents: character.name } })
+            .then( character => {
+                res.redirect(`/`);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        } else {
             res.redirect(`/`);
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        }
     });
 }
