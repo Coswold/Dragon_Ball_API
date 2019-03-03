@@ -93,7 +93,7 @@ You can access the list of characters by using the /planet endpoint.
 https://dragonballapi.com/api/planet/
 ```
 
-### Get a single character
+### Get a single planet
 You can get a single character by adding the name as a parameter: /planet/Earth
 
 If a name has a space `' '`, replace it with an underscore `_`.
