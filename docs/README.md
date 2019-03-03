@@ -141,7 +141,7 @@ SECRET = ???
 * [Bootstrap](https://getbootstrap.com/) - Web framework
 * [Express-rate-limit](https://www.npmjs.com/package/express-rate-limit) - Rate limiting middleware
 * [Npm](https://www.npmjs.com/) - Dependency management
-* [Json Web Tokens](https://jwt.io/) - Encyption
+* [Json Web Tokens](https://jwt.io/) - Encryption
 * [MongoDB](https://www.mongodb.com/) - Document based database
 
 ## Authors
