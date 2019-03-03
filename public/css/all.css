@@ -17,11 +17,15 @@ body {
     object-fit: cover;
 }
 
+img {
+  object-fit: none;
+  object-position: 0% 50%; /* default value: image is centered*/
+  object-position: 0 0; /* positioned top left of the content box */
+}
+
 .card-body {
     color: #ff7100;
 }
-
-/* Possibly Delete */
 
 .login-container{
     margin-top: 5%;
