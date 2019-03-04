@@ -57,7 +57,7 @@ You can get a single character by adding the name as a parameter: /character/Goh
 
 If a name has a space `' '`, replace it with an underscore `_`.
 ```
-https://dragon-ball-api.herokuapp.com/api/character/2
+https://dragon-ball-api.herokuapp.com/api/character/Gohan
 ```
 ```
 {
