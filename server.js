@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express();
-const port = 3000
+const port = process.env.PORT || 3000;
 var exphbs = require('express-handlebars')
 const expressValidator = require('express-validator');
 const bodyParser = require('body-parser');
