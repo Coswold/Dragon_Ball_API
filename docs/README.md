@@ -1,4 +1,4 @@
-# dragon-ball-api.herokuapp
+# DragonBallAPI
 
 ## What it is
 The Dragon Ball API is a RESTful API based on the television series Dragon Ball. By creating an account, you will get 5 queries per week, returning either characters or planets from the series. I am currently working on adding characters and planets to the database and have added the option for you to contribute as well. I am still working on how to verify the input from users. Check out the deployment [here](https://dragon-ball-api.herokuapp.com/).
