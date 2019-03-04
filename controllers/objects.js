@@ -82,7 +82,9 @@ module.exports = function(app) {
             const character = new Character(req.body);
             character.name = character.name.replace(/ /g,"_")
             character.url = "/api/character/" + character.name
-
+            if (!req.body.image) {
+                character.image = "../images/" + character.name + ".jpg"
+            }
             // SAVE INSTANCE OF CHARACTER MODEL TO DB
             character.save()
             Planet.findOneAndUpdate({ name: character.originPlanet },
