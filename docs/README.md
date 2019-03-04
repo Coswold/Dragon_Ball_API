@@ -1,4 +1,4 @@
-# DragonBallAPI
+# dragon-ball-api.herokuapp
 
 ## What it is
 The Dragon Ball API is a RESTful API based on the television series Dragon Ball. By creating an account, you will get 5 queries per week, returning either characters or planets from the series. I am currently working on adding characters and planets to the database and have added the option for you to contribute as well. I am still working on how to verify the input from users. Check out the deployment [here](https://dragon-ball-api.herokuapp.com/).
@@ -10,19 +10,19 @@ This documentation will help you get familiar with the resources of the Dragon B
 Authentication has been implemented as well as a limit on queries of up to 100 per every 15 minutes. I implemented `express-rate-limit` to stop malicious queries, data submissions, and account creations. After 100 queries, 5 character submissions, or 2 account creations, your IP will be flagged for a certain period of time.
 
 ### Rest
-Base url: DragonBallAPI.com/api
+Base url: dragon-ball-api.herokuapp.com/api
 
 The base url contains information about all available API's resources. All responses will return data in `json`.
 
 *Sample Request*
 ```
-https://dragonballapi.com/api/
+https://dragon-ball-api.herokuapp.com/api/
 ```
 
 ```
 {
-  "characters": "https://dragonballapi.com/api/character",
-  "planets": "https://dragonballapi.com/api/location",
+  "characters": "https://dragon-ball-api.herokuapp.com/api/character",
+  "planets": "https://dragon-ball-api.herokuapp.com/api/location",
 }
 ```
 There are currently 2 available resources:
@@ -49,7 +49,7 @@ Currently collecting data on characters.
 ### Get all characters
 You can access the list of characters by using the /character endpoint.
 ```
-https://dragonballapi.com/api/character/
+https://dragon-ball-api.herokuapp.com/api/character/
 ```
 
 ### Get a single character
@@ -57,7 +57,7 @@ You can get a single character by adding the name as a parameter: /character/Goh
 
 If a name has a space `' '`, replace it with an underscore `_`.
 ```
-https://dragonballapi.com/api/character/2
+https://dragon-ball-api.herokuapp.com/api/character/2
 ```
 ```
 {
@@ -90,7 +90,7 @@ Currently collecting data on planets.
 ### Get all planets
 You can access the list of characters by using the /planet endpoint.
 ```
-https://dragonballapi.com/api/planet/
+https://dragon-ball-api.herokuapp.com/api/planet/
 ```
 
 ### Get a single planet
@@ -98,7 +98,7 @@ You can get a single character by adding the name as a parameter: /planet/Earth
 
 If a name has a space `' '`, replace it with an underscore `_`.
 ```
-https://dragonballapi.com/api/planet/Earth
+https://dragon-ball-api.herokuapp.com/api/planet/Earth
 ```
 ```
 {
