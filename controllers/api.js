@@ -3,6 +3,16 @@ const Planet = require('../models/planet')
 
 module.exports = function(app) {
 
+    // GET ALL RESOURCES
+    app.get("/api", (req, res) => {
+        var resource = {
+            "characters": "dragon-ball-api.herokuapp.com/api/character",
+            "planets": "dragon-ball-api.herokuapp.com/api/planet"
+        }
+        res.json(resource);
+
+    })
+
     // GET ALL CHARACTERS
     app.get("/api/character", (req, res) => {
         Character.find()
